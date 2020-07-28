@@ -1,6 +1,6 @@
 #include "feedForwardNetwork.h"
 
-void FeedForwardNetwork::initNet(int numberOfInputNeurons)
+void FeedForwardNetwork::initNet(int numberOfInputNeurons, int numberOfOutputNeurons)
 {
     inputLayer.clear();
     hiddenLayer.clear();
@@ -13,7 +13,10 @@ void FeedForwardNetwork::initNet(int numberOfInputNeurons)
 
         Neuron *neuronHidden = new Neuron();
         hiddenLayer.push_back(neuronHidden);
+    }
 
+    for (int i = 0; i < numberOfOutputNeurons; ++i)
+    {
         Neuron *neuronOutput = new Neuron();
         outputLayer.push_back(neuronOutput);
     }

@@ -18,7 +18,7 @@
 class FeedForwardNetwork
 {
     public:
-        void initNet(int numberOfInputNeurons);
+        void initNet(int numberOfInputNeurons, int numberOfOutputNeurons);
         std::vector<Neuron*> inputLayer;
         std::vector<Neuron*> hiddenLayer;
         std::vector<Neuron*> outputLayer;
