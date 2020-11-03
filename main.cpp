@@ -16,11 +16,12 @@ int main(int argc, char* argv[])
     std::cout<<"Network initialized"<<std::endl;
     std::cout<<std::endl;
 
-    double error = 0;
+    double error = 1;
     std::cout<<"Learning in progress..."<<std::endl;
 
     //Learning XOR operation 2-nd output not used
-    for (int i = 0; i < 1000000; ++i)
+    int i = 0;
+    while (error > 0.01 || i < 50000) 
     {
         n->inputLayer.at(0)->value = 0.00;
         n->inputLayer.at(1)->value = 0.00;
@@ -44,7 +45,11 @@ int main(int argc, char* argv[])
 
         if (i % 1000 == 0)
             std::cerr<<error<<std::endl;
+
+        i++;
     }
+
+    std::cout<<"Learning took "<<i<<" iterations"<<std::endl;
     std::cout<<"Total error value: "<<error<<std::endl;
     std::cout<<std::endl;
     n->printNet();
